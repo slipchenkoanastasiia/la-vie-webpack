@@ -2,10 +2,13 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: {
+    main: './src/index.js',
+    swiperSlider: './src/swiper-bundle.js'
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: '[name].js',
   },
   module: {
     rules: [
@@ -19,25 +22,20 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
+        include: path.resolve(__dirname, 'src/css'), // Вказуємо шлях до папки src/css
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/,
+        test: /\.(png|jpg|jpeg|gif)$/,
         type: 'asset/resource',
         generator: {
           filename: 'img/[name].[hash][ext]',
         },
+        include: path.resolve(__dirname, 'src/img'), // Вказуємо шлях до папки src/img
       },
       {
-        test: /\.html$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'html/',
-            },
-          },
-        ],
+        test: /\.svg$/,
+        type: 'asset/inline', 
+        include: path.resolve(__dirname, 'src/img'), // Вказуємо шлях до папки src/img
       },
     ],
   },
@@ -46,6 +44,6 @@ module.exports = {
       directory: path.join(__dirname, 'dist'),
     },
     compress: true,
-    port: 9000,
+    port: 8080,
   },
 };
