@@ -22,7 +22,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
-        include: path.resolve(__dirname, 'src/css'), // Вказуємо шлях до папки src/css
+        include: path.resolve(__dirname, 'src/css'), 
       },
       {
         test: /\.(png|jpg|jpeg|gif)$/,
@@ -30,12 +30,12 @@ module.exports = {
         generator: {
           filename: 'img/[name].[hash][ext]',
         },
-        include: path.resolve(__dirname, 'src/img'), // Вказуємо шлях до папки src/img
+        include: path.resolve(__dirname, 'src/img'), 
       },
       {
         test: /\.svg$/,
         type: 'asset/inline', 
-        include: path.resolve(__dirname, 'src/img'), // Вказуємо шлях до папки src/img
+        include: path.resolve(__dirname, 'src/img'), 
       },
     ],
   },
@@ -45,5 +45,10 @@ module.exports = {
     },
     compress: true,
     port: 8080,
+  },
+  resolve: {
+    alias: {
+      'swiper-bundle': path.resolve(__dirname, 'src/swiper-bundle.js'),
+    },
   },
 };
