@@ -3,8 +3,8 @@ const path = require('path');
 module.exports = {
   mode: 'development',
   entry: {
-    main: 'src/index.js',
-    swiperSlider: 'src/swiper-bundle.js'
+    main: './src/index.js',
+    swiperSlider: './src/swiper-bundle.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
