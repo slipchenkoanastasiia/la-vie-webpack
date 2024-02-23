@@ -1,9 +1,9 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
   entry: {
-    main: './src/index.js',
     swiperSlider: './src/swiper-bundle.js'
   },
   output: {
@@ -39,6 +39,13 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html', // шлях до вашого HTML-шаблону
+      filename: 'index.html', // ім'я вихідного файлу
+      chunks: ['swiperSlider'], // назва чанка, який має бути включений у цей HTML-файл
+    }),
+  ],
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),

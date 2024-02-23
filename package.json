@@ -2,7 +2,7 @@
   "name": "la-vie-shop",
   "version": "1.0.0",
   "description": "website for the La Vie online store",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
