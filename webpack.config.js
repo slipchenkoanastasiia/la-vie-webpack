@@ -4,11 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    swiperSlider: './src/swiper-bundle.js'
+    app: './src/index.js' 
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
+    filename: '[name].bundle.js',
   },
   module: {
     rules: [
@@ -41,9 +41,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html', // шлях до вашого HTML-шаблону
-      filename: 'index.html', // ім'я вихідного файлу
-      chunks: ['swiperSlider'], // назва чанка, який має бути включений у цей HTML-файл
+      template: './src/index.html',
+      filename: 'index.html',
     }),
   ],
   devServer: {
