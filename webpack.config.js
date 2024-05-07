@@ -3,12 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: {
-    app: './src/index.js' 
-  },
+  entry: './src/index.js', // Шлях до вашого JavaScript-файлу
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js',
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -42,7 +40,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      filename: 'index.html',
     }),
   ],
   devServer: {
